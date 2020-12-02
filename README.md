@@ -17,12 +17,29 @@ This library, contains some routine to make copy in memory.
 Set the address source and destination of copy. Coutn contains number of byte you want copy. 
 
 - Source is store in address $02 & $03 (low/high)
-- Dest is store in address $fb & fb (low/high)
+- Dest is store in address $fb & $fc (low/high)
 - Count is store in address $fd,$fe (low/high)
 
 *Example:*
 
+lda #$00 ; source $0400
+sta $02
+lda #$04
+sta #03
 
+lda #$ : destination $0
+sta $fb
+lda #$
+sta $fc 
+
+lda #$00
+sta $fd
+lda #$00
+sta $fe
+
+jsr memcopy
+
+  
 ### memCopyMod
 
 
