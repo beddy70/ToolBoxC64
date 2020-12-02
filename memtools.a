@@ -38,6 +38,11 @@ memCopyMod
 	; linesize $62 & $63
 	; modulo $64 & $65	
 
+	lda $62			;copy infi line size
+	sta $64
+	lda $63
+	sta $65
+	
 	ldy #$00
 -
 	lda ($02),y
