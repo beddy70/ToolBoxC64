@@ -27,12 +27,12 @@ sta $02
 lda #$04
 sta #03
 
-lda #$ : destination $0
+lda #$e0 ; destination $05E0
 sta $fb
-lda #$
+lda #$05
 sta $fc 
 
-lda #$00
+lda #$a0 ; number of bytes $a0
 sta $fd
 lda #$00
 sta $fe
