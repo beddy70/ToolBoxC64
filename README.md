@@ -34,7 +34,7 @@ start:
 	lda #$05
 	sta $fc 
 
-	lda #$a0 ; number of bytes $a0 ( 4*40 
+	lda #$a0 ; number of bytes $a0 ( 4*40 -> 4 lines)
 	sta $fd
 	lda #$00
 	sta $fe
