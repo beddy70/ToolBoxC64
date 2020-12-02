@@ -21,7 +21,7 @@ Set the address source and destination of copy. Coutn contains number of byte yo
 - Count is store in address $fd,$fe (low/high)
 
 *Example:*
-
+```
 lda #$00 ; source $0400
 sta $02
 lda #$04
@@ -38,12 +38,8 @@ lda #$00
 sta $fe
 
 jsr memcopy
-
+```
   
 ### memCopyMod
 
-```javascript
-function test() {
- console.log("look ma’, no spaces");
-}
-```
+
