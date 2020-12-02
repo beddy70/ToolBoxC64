@@ -14,7 +14,13 @@ This library, contains some routine to make copy in memory.
 - dest   (16bits)
 - count  (16bits)
 
+Set the address source and destination of copy. Coutn contains number of byte you want copy. 
 
+- Source is store in address $02 & $03 (low/high)
+- Dest is store in address $fb & fb (low/high)
+- Count is store in address $fd,$fe (low/high)
+
+*Example:*
 
 
 ### memCopyMod
