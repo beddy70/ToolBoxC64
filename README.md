@@ -14,7 +14,7 @@ This library, contains some routine to make copy in memory.
 - dest   (16bits)
 - count  (16bits)
 
-Set the address source and destination of copy. Coutn contains number of byte you want copy. 
+Set the address source and destination of copy. Count contains number of byte you want copy. 
 
 - Source is store in address $02 and $03 (low/high)
 - Dest is store in address $fb and $fc (low/high)
@@ -52,5 +52,38 @@ start:
   
   
 ### memCopyMod
+
+This routine is like memCopy but with modulo. See below :  
+
+```
+      [------ line size (number of bytes -------]   ; Here 11 bytes
+.byte $80,$80,$80,$80,$80,$80,$80,$80,$80,$80,$80   ; line 0
+.byte $80,$80,$80,$80,$80,$80,$80,$80,$80,$80,$80   ; line 1
+.byte $80,$80,$80,$80,$80,$80,$80,$80,$80,$80,$80   ; line 2
+.byte $80,$80,$80,$80,$80,$80,$80,$80,$80,$80,$80   ; line 3
+
+; here count = 4*11
+
+```
+**memCopy** *source,dest,count*
+
+- source   (16bits) 
+- dest     (16bits)
+- count    (16bits)
+- sizeline (16bits)
+- modulo   (16bits)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
