@@ -87,7 +87,7 @@ Here modulo is number of bytes between the end of first line and the beginning o
 - linesize (16bits)
 - modulo   (16bits)
 
-initiaize memCopyMod
+initialize memCopyMod
 
 - Source is store in address $02 and $03 (low/high)
 - Dest is store in address $fb and $fc (low/high)
