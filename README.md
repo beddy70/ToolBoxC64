@@ -93,11 +93,62 @@ initiaize memCopyMod
 - Dest is store in address $fb and $fc (low/high)
 - Count is store in address $fd and $fe (low/high)
 - line size is store in address $62 and $63
-- modulo is store in address $54 and $65
+- modulo is store in address $66 and $67
 
 *Example:*
 
+```
+*=$1000
 
+COL = 20
+ROW = 6
+
+start:
+	lda #<mydata 
+	sta $02
+	lda #>mydata
+	sta $03
+
+	lda #<($0400+(40*ROW+COL)) ; destination $05E0
+	sta $fb
+	lda #>($0400+(40*ROW+COL))
+	sta $fc 
+
+	lda #<(enddata-mydata)  ; number of bytes $a0
+	sta $fd
+	lda #>(enddata-mydata)
+	sta $fe
+
+	lda #<(sl-mydata)		; linesize
+	sta $62
+	lda #>(sl-mydata)
+	sta $63
+
+	lda #<(40-(sl-mydata))		; linesize
+	sta $66
+	lda #>(40-(sl-mydata))
+	sta $67
+
+	jsr memCopyMod
+
+	rts
+
+!source "libs/memtools.a"	
+
+mydata: 
+
+	!text "  *****  "
+sl:	!text " *     * " 
+	!text "*  ^ ^  *"
+	!text " * 0 0 * "
+    !text " *  o  * "
+    !text " *     * "
+    !text "  *****  "
+    !text "   * *   "
+    !text "   * *   "
+     
+enddata:
+```
 
 
 
