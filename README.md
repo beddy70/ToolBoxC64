@@ -22,22 +22,28 @@ Set the address source and destination of copy. Coutn contains number of byte yo
 
 *Example:*
 ```
-lda #$00 ; source $0400
-sta $02
-lda #$04
-sta #03
+*=$1000
+start:
+	lda #$00 ; source $0400
+	sta $02
+	lda #$04
+	sta $03
 
-lda #$e0 ; destination $05E0
-sta $fb
-lda #$05
-sta $fc 
+	lda #$e0 ; destination $05E0
+	sta $fb
+	lda #$05
+	sta $fc 
 
-lda #$a0 ; number of bytes $a0
-sta $fd
-lda #$00
-sta $fe
+	lda #$a0 ; number of bytes $a0
+	sta $fd
+	lda #$00
+	sta $fe
 
-jsr memcopy
+	jsr memCopy
+
+	rts
+
+!source "libs/memtools.a"
 ```
   Before | After
 ------------ | -------------
