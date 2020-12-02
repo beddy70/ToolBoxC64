@@ -10,9 +10,9 @@ This library, contains some routine to make copy in memory.
 
 **memCopy** *source,dest,count*
 
--source (16bits) 
--dest   (16bits)
--count  (16bits)
+- source (16bits) 
+- dest   (16bits)
+- count  (16bits)
 
 
 
