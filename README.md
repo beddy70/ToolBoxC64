@@ -124,7 +124,7 @@ start:
 	lda #>(sl-mydata)
 	sta $63
 
-	lda #<(40-(sl-mydata))		; linesize
+	lda #<(40-(sl-mydata))		; modulo
 	sta $66
 	lda #>(40-(sl-mydata))
 	sta $67
@@ -150,7 +150,9 @@ sl:	!text " *     * "
 enddata:
 ```
 
-
+  Before | After
+------------ | -------------
+![Alt Text](https://github.com/beddy70/ToolBoxC64/blob/main/memtool1.png) | ![Alt Text](https://github.com/beddy70/ToolBoxC64/blob/main/memtool2.png)
 
 
 
