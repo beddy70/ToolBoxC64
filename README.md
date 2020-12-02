@@ -42,4 +42,8 @@ jsr memcopy
   
 ### memCopyMod
 
-
+```javascript
+function test() {
+ console.log("look ma’, no spaces");
+}
+```
