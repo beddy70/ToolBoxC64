@@ -77,6 +77,7 @@ This routine is like memCopy but with modulo. See below :
 |                             |
 -------------------------------
 
+Here modulo is number of bytes between the end of first line and the beginning of the second line 
 ```
 **memCopyMod** *source,dest,count*
 
