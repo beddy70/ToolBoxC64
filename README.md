@@ -16,9 +16,9 @@ This library, contains some routine to make copy in memory.
 
 Set the address source and destination of copy. Coutn contains number of byte you want copy. 
 
-- Source is store in address $02 & $03 (low/high)
-- Dest is store in address $fb & $fc (low/high)
-- Count is store in address $fd,$fe (low/high)
+- Source is store in address $02 and $03 (low/high)
+- Dest is store in address $fb and $fc (low/high)
+- Count is store in address $fd and $fe (low/high)
 
 *Example:*
 ```
