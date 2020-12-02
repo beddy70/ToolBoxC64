@@ -141,11 +141,11 @@ mydata:
 sl:	!text " *     * " 
 	!text "*  ^ ^  *"
 	!text " * 0 0 * "
-    !text " *  o  * "
-    !text " *     * "
-    !text "  *****  "
-    !text "   * *   "
-    !text "   * *   "
+   	!text " *  o  * "
+    	!text " *     * "
+    	!text "  *****  "
+    	!text "   * *   "
+    	!text "   * *   "
      
 enddata:
 ```
