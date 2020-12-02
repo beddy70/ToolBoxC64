@@ -69,14 +69,13 @@ This routine is like memCopy but with modulo. See below :
 ```
 -------------------------------
 |                             |
-|                             |
-|                             |
-|                             |
-|                             |
+|      ------ <-----------modu| 
+|lo--->|    |                 |
+|      |    |                 |
+|      ------                 |
 |                             |
 |                             |
 -------------------------------
-
 
 ```
 **memCopyMod** *source,dest,count*
