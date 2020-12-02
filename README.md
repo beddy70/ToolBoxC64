@@ -24,17 +24,17 @@ Set the address source and destination of copy. Coutn contains number of byte yo
 ```
 *=$1000
 start:
-	lda #$00 ; source $0400
+	lda #$00 ; source $0400 top of default screen of C64
 	sta $02
 	lda #$04
 	sta $03
 
-	lda #$e0 ; destination $05E0
+	lda #$e0 ; destination $05E0 ( 13 lines under ) 
 	sta $fb
 	lda #$05
 	sta $fc 
 
-	lda #$a0 ; number of bytes $a0
+	lda #$a0 ; number of bytes $a0 ( 4*40 
 	sta $fd
 	lda #$00
 	sta $fe
