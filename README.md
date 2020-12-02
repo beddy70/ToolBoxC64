@@ -55,7 +55,7 @@ start:
 
 This routine is like memCopy but with modulo. See below :  
 
-**source data:**
+**Source data:**
 ```
       [------ line size (number of bytes -------]   ; Here 11 bytes
 .byte $80,$80,$80,$80,$80,$80,$80,$80,$80,$80,$80   ; line 0
@@ -64,9 +64,22 @@ This routine is like memCopy but with modulo. See below :
 .byte $80,$80,$80,$80,$80,$80,$80,$80,$80,$80,$80   ; line 3
 
 ; here count = 4*11
+```
+**Result on screen:**
+```
+-------------------------------
+|                             |
+|                             |
+|                             |
+|                             |
+|                             |
+|                             |
+|                             |
+-------------------------------
+
 
 ```
-**memCopy** *source,dest,count*
+**memCopyMod** *source,dest,count*
 
 - source   (16bits) 
 - dest     (16bits)
