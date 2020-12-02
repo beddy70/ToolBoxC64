@@ -1,0 +1,79 @@
+
+memCopy: 
+
+	; source,dest,count	
+	; -----------------
+	; source in address $02 & $03 (lo/hi)
+	; dest in address $$fb & $fc (lo/hi)
+	; count (number of data to copy ) $fd & $fe (lo/hi)
+
+	ldy #$00
+-
+	lda ($02),y
+	sta ($fb),y 
+	inc $fb			;increment mem dest
+	bne +
+	inc $fc
++
+	inc $02			;increment mem source
+	bne +
+	inc $03
++		
+	dec $fd
+	bne -
+	ldx $fe 
+	beq +
+	dec $fe 
+	bpl -
++
+	rts	
+
+memCopyMod 
+	
+	; source, dest, count, linesize, modulo
+	; -------------------------------------
+	; source in address $02 & $03 (lo/hi)
+	; dest in address $fb & $fc (lo/hi)
+	; count (number of data to copy ) $fd & $fe (lo/hi)
+	; linesize $62 & $63
+	; modulo $64 & $65	
+
+	ldy #$00
+-
+	lda ($02),y
+	sta ($fb),y 
+	inc $fb			;increment mem dest
+	bne +
+	inc $fc
++
+	inc $02			;increment mem source
+	bne +
+	inc $03
++	
+	dec $64			;count data from line copied
+	bne +
+	dec $65
+	bpl +
+
+	lda $62			;reset size line counter
+	sta $64
+	lda $63
+	sta $65
+					;add modulo to address dest
+	clc					
+	lda $fb
+	adc $66
+	sta $fb			
+	lda $fc
+	adc $67			
+	sta $fc	
++
+	dec $fd			;decrement count counter 
+	bne -
+	ldx $fe 
+	beq +
+	dec $fe 
+	bpl -
++
+	rts		
+
