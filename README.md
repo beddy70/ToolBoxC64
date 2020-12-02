@@ -8,6 +8,8 @@ This library, contains some routine to make copy in memory.
 
 ### memCopy
 
+**memCopy** *source,dest,count*
+
 
 
 ### memCopyMod
