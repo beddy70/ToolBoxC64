@@ -154,7 +154,12 @@ enddata:
 ------------ | -------------
 ![Alt Text](https://github.com/beddy70/ToolBoxC64/blob/main/images/memtool1.png) | ![Alt Text](https://github.com/beddy70/ToolBoxC64/blob/main/images/memtool3.png)
 
+  
+### memFill *value,dest,count*
 
+- value (16bits) 
+- dest   (16bits)
+- count  (16bits)
 
 
 
