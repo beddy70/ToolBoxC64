@@ -3,14 +3,13 @@
 ;-----------------------------
 
 memCopy: 
-
 	; source,dest,count	
 	; -----------------
 	; source in address $02 & $03 (lo/hi)
-	; dest in address $$fb & $fc (lo/hi)
+	; dest in address $fb & $fc (lo/hi)
 	; count (number of data to copy ) $fd & $fe (lo/hi)
 
-	ldy #$00
+	ldy #$00;
 -
 	lda ($02),y
 	sta ($fb),y 
@@ -31,7 +30,7 @@ memCopy:
 +
 	rts	
 
-memCopyMod 
+memCopyMod: 
 	
 	; source, dest, count, linesize, modulo
 	; -------------------------------------
@@ -41,7 +40,7 @@ memCopyMod
 	; linesize $62 & $63
 	; modulo $64 & $65	
 
-	lda $62			;copy infi line size
+	lda $62			;reset size line counter
 	sta $64
 	lda $63
 	sta $65
@@ -85,3 +84,26 @@ memCopyMod
 +
 	rts		
 
+memFill: 
+	; value,dest,count	
+	; -----------------
+	; value in address $02 
+	; dest in address $fb & $fc (lo/hi)
+	; count (number of data to copy ) $fd & $fe (lo/hi)
+
+	ldy #$00;
+-
+	lda $02
+	sta ($fb),y 
+	inc $fb			;increment mem dest
+	bne +
+	inc $fc
++		
+	dec $fd
+	bne -
+	ldx $fe 
+	beq +
+	dec $fe 
+	bpl -
++
+	rts
