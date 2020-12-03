@@ -109,12 +109,12 @@ start:
 	lda #>mydata
 	sta $03
 
-	lda #<($0400+(40*ROW+COL)) ; destination $05E0
+	lda #<($0400+(40*ROW+COL)) ; destination on column 20 and row 6
 	sta $fb
 	lda #>($0400+(40*ROW+COL))
 	sta $fc 
 
-	lda #<(enddata-mydata)  ; number of bytes $a0
+	lda #<(enddata-mydata)  ; number of bytes 
 	sta $fd
 	lda #>(enddata-mydata)
 	sta $fe
