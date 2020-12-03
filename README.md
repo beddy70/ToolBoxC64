@@ -157,13 +157,50 @@ enddata:
   
 ### memFill *value,dest,count*
 
-- value (16bits) 
+- value (8bits) 
 - dest   (16bits)
 - count  (16bits)
 
+This routine fill memory of value n. 
 
+- Value is store in address $02 
+- Dest is store in address $fb and $fc (low/high)
+- Count is store in address $fd and $fe (low/high)
 
+*Example:*
 
+```
+!to "PRG/mem.prg", cbm
 
+*=$1000
 
+COL = 0
+ROW = 10
 
+start:
+	
+
+	lda #32+128 ;INVERT SPACE CHAR 
+	sta $02
+
+	lda #<($0400+(40*(ROW))+COL) ; destination $05E0
+	sta $fb
+	lda #>($0400+(40*(ROW))+COL)
+	sta $fc 
+
+	lda #<(40*4)  ; number of bytes $a0
+	sta $fd
+	lda #>(40*4)
+	sta $fe
+
+	jsr memFill
+
+	rts
+
+!source "libs/memtools.a"
+
+```
+
+  Before | After
+------------ | -------------
+![Alt Text](https://github.com/beddy70/ToolBoxC64/blob/main/images/memtool1.png) | ![Alt Text](https://github.com/beddy70/ToolBoxC64/blob/main/images/)
