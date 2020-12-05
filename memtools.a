@@ -91,19 +91,16 @@ memFill:
 	; dest in address $fb & $fc (lo/hi)
 	; count (number of data to copy ) $fd & $fe (lo/hi)
 
-	ldy #$00;
+	ldy #$00
 -
-	lda $02
-	sta ($fb),y 
-	inc $fb			;increment mem dest
+	sta ($fb),y
+	inc $fb ;increment mem dest
 	bne +
 	inc $fc
-+		
++
 	dec $fd
 	bne -
-	ldx $fe 
-	beq +
-	dec $fe 
+	dec $fe
 	bpl -
-+
-	rts
+
+rts
