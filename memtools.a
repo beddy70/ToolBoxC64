@@ -103,4 +103,39 @@ memFill:
 	dec $fe
 	bpl -
 
-rts
+	rts
+memMapper:
+
+	; source,dest,count, maptable	
+	; ---------------------------
+	; source in address $02 & $03 (lo/hi)
+	; dest in address $fb & $fc (lo/hi)
+	; count (number of data to copy ) $fd & $fe (lo/hi)
+	; maptable address in $62 & $63 (lo/hi)
+	lda $62
+	sta tm+1;
+	lda $63
+	sta tm+2;
+
+	ldy #$00;
+-
+	lda ($02),y
+	tax
+tm:	lda $0000,x
+	sta ($fb),y 
+	inc $fb			;increment mem dest
+	bne +
+	inc $fc
++
+	inc $02			;increment mem source
+	bne +
+	inc $03
++		
+	dec $fd
+	bne -
+	ldx $fe 
+	beq +
+	dec $fe 
+	bpl -
++
+	rts	
