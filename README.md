@@ -328,14 +328,16 @@ sl:	!text " *     * "
 	!text "*  ^ ^  *"
 	!text " * 0 0 * "
    	!text " *  o  * "
-    !text " *     * "
-    !text "  *****  "
-    !text "   * *   "
-    !text "   * *   "
+	!text " *     * "
+	!text "  *****  "
+	!text "   * *   "
+	!text "   * *   "
      
 enddata:
 ```
-
+  Before | After
+------------ | -------------
+![Alt Text](https://github.com/beddy70/ToolBoxC64/blob/main/images/memtool1.png) | ![Alt Text](https://github.com/beddy70/ToolBoxC64/blob/main/images/memtool3.png)
 	
 
 
