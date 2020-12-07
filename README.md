@@ -277,12 +277,12 @@ start:
 	lda #$04
 	sta $03
 
-	lda #$00 ; destination $05E0 ( 13 lines under ) 
+	lda #$00 ; destination $D800  (color ram)
 	sta $fb
 	lda #$D8
 	sta $fc 
 
-	lda #$e8 ; number of bytes $a0 ( 4*40 -> 4 lines)
+	lda #$e8 ; number of bytes $3e8 (number of caractère in a screen 40x25) 
 	sta $fd
 	lda #$03
 	sta $fe
@@ -296,7 +296,7 @@ start:
 
 	rts
 
-mapTable:
+mapTable: 
 	!byte $00,$01,$02,$03,$04,$05,$06,$07,$08,$09,$0A,$0B,$0C,$0D,$0F
 	!byte $00,$01,$02,$03,$04,$05,$06,$07,$08,$09,$0A,$0B,$0C,$0D,$0F
 	!byte $00,$01,$02,$03,$04,$05,$06,$07,$08,$09,$0A,$0B,$0C,$0D,$0F
@@ -337,7 +337,7 @@ enddata:
 ```
   Before | After
 ------------ | -------------
-![Alt Text](https://github.com/beddy70/ToolBoxC64/blob/main/images/memtool1.png) | ![Alt Text](https://github.com/beddy70/ToolBoxC64/blob/main/images/memtool3.png)
+![Alt Text](https://github.com/beddy70/ToolBoxC64/blob/main/images/memtool1.png) | ![Alt Text](https://github.com/beddy70/ToolBoxC64/blob/main/images/memtool5.png)
 	
 
 
