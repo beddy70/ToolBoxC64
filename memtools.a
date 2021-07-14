@@ -87,7 +87,7 @@ memCopyMod:
 memFill: 
 	; value,dest,count	
 	; -----------------
-	; value in address $02 
+	; value in address (get value fromm accumulator/A regsiter) 
 	; dest in address $fb & $fc (lo/hi)
 	; count (number of data to copy ) $fd & $fe (lo/hi)
 
